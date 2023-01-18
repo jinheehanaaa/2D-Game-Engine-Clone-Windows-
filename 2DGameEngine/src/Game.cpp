@@ -65,14 +65,16 @@ void Game::ProcessInput() {
 }
 
 void Game::Update() {
-    // Wait until 16ms has ellapsed since the last fram
-    // Alternative method: SDL_Delay
-    while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksLastFrame + FRAME_TARGET_TIME));
+    // Waste some time / sleep until we reach the target frame time in milliseconds
+    int timeToWait = FRAME_TARGET_TIME - (SDL_GetTicks() - ticksLastFrame);
 
-    // Delta time is the difference in ticks from last frame converted to seconds
+    // Only sleep if we are too fast
+    if (timeToWait > 0 && timeToWait <= FRAME_TARGET_TIME) {
+        SDL_Delay(timeToWait);
+    }
+
+    // Delta time is the difference in ticks from last frame converted to secomds
     float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
-
-    // int ticksLastFrame = 0; // keep this variable  in Game.h
 
     // Clamp deltaTime to a maximum value
     deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
@@ -80,9 +82,9 @@ void Game::Update() {
     // Sets the new ticks for the current frame to be used in the next pass
     ticksLastFrame = SDL_GetTicks();
 
+    // Use deltaTime to update my game objects
     projectilePosX += projectileVelX * deltaTime;
     projectilePosY += projectileVelY * deltaTime;
-
 }
 
 void Game::Render() {

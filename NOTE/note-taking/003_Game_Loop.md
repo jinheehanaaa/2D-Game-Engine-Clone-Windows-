@@ -249,6 +249,69 @@ void Game::Update() {
 }
 ```
 
+
+- 
+## Code Example 
+
+</details>
+<!--End Accordion -->
+
+
+
+<!--Start Accordion -->
+<details>
+  <summary>SDL_Delay</summary>
+
+# Obejctive
+- Learn while loop
+- 3.21, 3.22
+
+# Disadvantage of while loop 
+- In the real world, you shouldn't use while loop because while loop is processor instruction.
+- Once we compile program, while loop becomes a part of executable. 
+- When OS is executing the task, it doesn't know what to do.
+- Processor could burn in some case (Might waste resources) 
+- We should use SDL_Delay function
+
+# SDL_Delay
+- Proper delay function relies on OS capability of using the execution to order processes.
+- SDL_Delay is operating system specific (ex: Scheduling the processes, managing the tasks)
+
+## Code Example
+```cpp
+void Game::Update() {
+    // Waste some time / sleep until we reach the target frame time in milliseconds
+    int timeToWait = FRAME_TARGET_TIME - (SDL_GetTicks() - ticksLastFrame);
+
+    // Only sleep if we are too fast
+    if (timeToWait > 0 && timeToWait <= FRAME_TARGET_TIME) {
+        SDL_Delay(timeToWait);
+    }
+
+    // Delta time is the difference in ticks from last frame converted to secomds
+    float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
+
+    // Clamp deltaTime to a maximum value
+    deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
+
+    // Sets the new ticks for the current frame to be used in the next pass
+    ticksLastFrame = SDL_GetTicks();
+
+    // Use deltaTime to update my game objects
+    projectilePosX += projectileVelX * deltaTime;
+    projectilePosY += projectileVelY * deltaTime;
+}
+```
+
+# Note
+- SDL_Delay is not accurate enough
+- It never work at a finer resolution than what the OS's scheduler offers.
+- If you are looking for accuracy, then using SDL_Delay is not our best bet.
+- For some game engines, they implement timerate-independent movement using only the delta time technique.
+- This means the application is free to run as fast as it can (200 FPS, 300 FPS, 700FPS, etc)
+- We will achieve a frame-rate independent movement
+- If you want to know more about this topic click here => [Fix Your Timestep!](https://gafferongames.com/post/fix_your_timestep/)
+
 </details>
 <!--End Accordion -->
 
