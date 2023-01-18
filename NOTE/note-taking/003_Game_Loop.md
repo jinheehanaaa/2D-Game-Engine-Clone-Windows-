@@ -178,7 +178,7 @@ void Run() {
 
 <!--Start Accordion -->
 <details>
-  <summary>Timestep</summary>
+  <summary>Delta Time</summary>
 
 # Objective
 - Understand delay & DeltaTime Method
@@ -354,10 +354,42 @@ void Game::Update() {
 <!--End Accordion -->
 
 
+<!--Start Accordion -->
+<details>
+  <summary>Double Buffering</summary>
+
+# Objective
+- Double Buffering to prevent some screen problems
+- 3.25
+
+# Learn
+- Color buffer
+- Back buffer
+- Front buffer
+
+# Step
+1. Clear the back buffer
+2. Draw all game objects
+3. Swap front and back buffers
 
 
+## Example Code
+```cpp
+void Game::render() {
+    // set the background color
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
+    // clear the back buffer
+    SDL_RenderClear(renderer);
 
+    // ..
+    // draw all game objects of the scene
+    // ..
 
+    // swap front and back buffers
+    SDL_RenderPresent(renderer);
+}
+```
 
-
+</details>
+<!--End Accordion -->

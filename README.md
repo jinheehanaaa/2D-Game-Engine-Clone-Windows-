@@ -1,39 +1,16 @@
 # Objective 
 - Learn how to make game engine with C++, Lua, & SDL
+- This is not a How-To-Do Instruction (It is for reference purposes)
 
 # Technologies
 - C++
-- SDL for multi-platform (ex: opening the window, drawing image, etc)
+- GLM for math (ex: vector)
+- SDL for easy memory allocation from OS
 - Lua for scripting language
 
-# Branch
-- [Setup completed for the first time](https://github.com/jinheehanaaa/2D-Game-Engine-with-CPP-LUA-and-SDL/tree/5679f7385963dd234a4953f9d47ce691cb4a083d)
-
-
-# Setup procedure
-- Create empty project with Visual Studio 2022
-- Install dependencies (SDL, Lua, glm, & assets)
-- Property Setup
-- - Include Directories
-- - - /lib
--  - - /lib/SDL2/include
-- - Library Directories 
-- - - /lib/SDL2/Lib/x64
-- - - /lib/Lua
-- - Linker input Additional Dependencies
-- - - SDL2.lib
-- - - SDL2main.lib
-- - -  SDL2_image.lib
-- - -  SDL2_ttf.lib
-- - -  SDL2_mixer.lib
-- - -  liblua53.a
-- Pass parameters to main function
-- - int argc => counter of arguments
-- - char* argv[] => pointer to character array
-
-# Tips
-- used <code>$(SolutionDir)</code> for easy porting
-
+# Important Branch
+- [1. Setup completed for the first time in Windows OS](https://github.com/jinheehanaaa/2D-Game-Engine-with-CPP-LUA-and-SDL/tree/5679f7385963dd234a4953f9d47ce691cb4a083d)
+- [2. Update in Game Loop with proper delta time method](https://github.com/jinheehanaaa/2D-Game-Engine-with-CPP-LUA-and-SDL/tree/12638eb15da786823de46f9a7e3e2ae9cc1b4b4c)
 
 # Resource for this project
 - [SDL-Website](https://libsdl.org/)
@@ -44,5 +21,11 @@
 - [Lua-Binary](https://luabinaries.sourceforge.net/)
 
 # Resources for other projects
-- [Handmade Hero](https://www.youtube.com/@MollyRocket)
-- [2D Game in Java](https://youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq)
+- They teach common things about game engine (Game loop, delta time, tilemap, etc)
+- [Handmade Hero](https://www.youtube.com/@MollyRocket) for C Style Game Engine
+- [2D Game in Java](https://youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq) for Making Java Game Engine without library
+
+
+# Private-Use-Only
+- [This URL](https://github.com/jinheehanaaa/2D-Game-Engine-with-CPP-LUA-and-SDL)
+- [Study Note](NOTE/note-taking/)
