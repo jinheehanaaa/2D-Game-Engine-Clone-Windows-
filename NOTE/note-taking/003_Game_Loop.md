@@ -51,20 +51,71 @@
 
 # Objective
 - Heap & Stack
-- 3.15
+- 3.15, 3.16
 
 # Heap
-- new keyword is for heap allocation <code>Game *game = new Game();</code>
+- new keyword is for heap allocation => ex: <code>Game *game = new Game();</code>
 - Need to use pointer with heap if you want to use bigger object for much more memory.
-- you need to deallocate the memory for heap <code>delete game;</code>
+- you need to deallocate the memory for heap => ex: <code>delete game;</code>
 
 # Stack
-- Limited memory usage from OS, usually few MBs => (Ex: <code>Game game;</code>)
-- Access with "." => (Ex: <code>game.Initialize(WINDOW_WIDTH, WINDOW_HEIGHT);</code>)
+- Limited memory usage from OS, usually few MBs => Ex: <code>Game game;</code>)
+- Access with "." => Ex: <code>game.Initialize(WINDOW_WIDTH, WINDOW_HEIGHT);</code>
 - Don't have to deallocate the object
 
 </details>
 <!--End Accordion -->
+
+
+<!--Start Accordion -->
+<details>
+  <summary>Detail about Stack & Heap</summary>
+
+# Stack
+- In the stack, the allocation happens on contiguous blocks of memory
+- The size of memory to be allocated is known to the compiler
+- The stack has a fixed size (OS-dependent)
+- We don't have to worry about memory allocation/deallocation of stack variables
+ 
+ ## Code Example
+```cpp
+void SomeFunction() {
+    // Creates an object in the stack
+    Enemy enemy;
+
+    enemy.Jump();
+    enemy.Run(20);
+    enemy.LookLeft();
+} // Scope ends, object is automatically destroyed
+```
+
+# Heap
+- In the heap, memory is allocated dynamically and it's usually not contiguous
+- The heap has no fixed-size restrictions, but heap handling is slower than stack handling
+- The programmer is responsible for remembering to deallocate the object in memory
+
+## Code Example
+```cpp
+void SomeFunction() {
+    // Creates an object in the heap using the "new" keyword
+    Enemy* enemy = new Enemy();
+
+    enemy->Jump();
+    enemy->Run(20);
+    enemy->LookLeft();
+
+    // We need to explicitly "delete" the object
+    delete enemy;
+} 
+```
+
+
+</details>
+<!--End Accordion -->
+
+
+
+
 
 
 
