@@ -6,8 +6,9 @@
 - SDL for multi-platform (ex: opening the window, drawing image, etc)
 - Lua for scripting language
 
-# Starting from scratch
-- You can download [this branch](https://github.com/jinheehanaaa/2D-Game-Engine-with-CPP-LUA-and-SDL/tree/5679f7385963dd234a4953f9d47ce691cb4a083d).
+# Branch
+- [Setup completed for the first time](https://github.com/jinheehanaaa/2D-Game-Engine-with-CPP-LUA-and-SDL/tree/5679f7385963dd234a4953f9d47ce691cb4a083d)
+
 
 # Setup procedure
 - Create empty project with Visual Studio 2022
@@ -29,6 +30,10 @@
 - Pass parameters to main function
 - - int argc => counter of arguments
 - - char* argv[] => pointer to character array
+
+# Tips
+- used <code>$(SolutionDir)</code> for easy porting
+
 
 # Resource for this project
 - [SDL-Website](https://libsdl.org/)

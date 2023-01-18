@@ -73,10 +73,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)\2DGameEngine\lib;$(SolutionDir)\2DGameEngine\lib\SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\2DGameEngine\lib\lua;$(SolutionDir)\2DGameEngine\lib\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(VC_ExecutablePath_x86);$(CommonExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)\2DGameEngine\lib;$(SolutionDir)\2DGameEngine\lib\SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\2DGameEngine\lib\lua;$(SolutionDir)\2DGameEngine\lib\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(VC_ExecutablePath_x86);$(CommonExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -473,6 +475,8 @@
     <ClInclude Include="lib\SDL2\include\SDL_version.h" />
     <ClInclude Include="lib\SDL2\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2\include\SDL_vulkan.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Game.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="lib\glm\detail\func_common.inl" />
@@ -610,6 +614,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\glm\detail\glm.cpp" />
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
