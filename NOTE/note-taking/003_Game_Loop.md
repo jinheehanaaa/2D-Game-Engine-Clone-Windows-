@@ -200,11 +200,14 @@ float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
 // the projectile will move 20 pixels per second
 projectile.position.x += 20 * deltaTime; // performance is different from machine to machine
 ```
-</details>
 
 # If you implement DeltaTime,
 - Now our game objects will move correctly regardless of the frame rate.
 - As a rule, all objects in the scene should be updated as a function of delta time.
+
+</details>
+
+
 
 <!--End Accordion -->
 
@@ -311,6 +314,41 @@ void Game::Update() {
 - This means the application is free to run as fast as it can (200 FPS, 300 FPS, 700FPS, etc)
 - We will achieve a frame-rate independent movement
 - If you want to know more about this topic click here => [Fix Your Timestep!](https://gafferongames.com/post/fix_your_timestep/)
+
+</details>
+<!--End Accordion -->
+
+
+<!--Start Accordion -->
+<details>
+  <summary>Vector2</summary>
+
+# Objective
+- Use vector2 with glm math library
+
+## Code Example
+```cpp
+#include "../lib/glm/glm.hpp"
+
+// ..
+
+
+glm::vec2 projectilePos = glm::vec2(0.0f, 0.0f);
+glm::vec2 projectileVel = glm::vec2(30.0f, 45.0f);
+
+// ..
+
+void Game::Update() {
+    // DeltaTime
+
+    // Use deltaTime to update my game objects
+    projectilePos = glm::vec2(
+        projectilePos.x + projectileVel.x * deltaTime,
+        projectilePos.y + projectileVel.y * deltaTime
+    );
+}
+
+```
 
 </details>
 <!--End Accordion -->
