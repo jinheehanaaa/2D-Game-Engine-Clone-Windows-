@@ -119,6 +119,10 @@ void SomeFunction() {
 <details>
   <summary>New & Delete</summary>
 
+# Objective
+- Learn more about new & delete
+- 3.17
+
 # What is happening inside new & delete?
 - new => Memory allocation (malloc) & Initialization (constructor)
 - delete => Deinitialization (destructor) & Deallocation (free)
@@ -169,6 +173,39 @@ void Run() {
 ```
 
 </details>
+<!--End Accordion -->
+
+
+<!--Start Accordion -->
+<details>
+  <summary>Timestep</summary>
+
+# Objective
+- Understand delay & DeltaTime Method
+- 3.18
+- 
+# DeltaTime
+- DeltaTime is the amount elapsed since the last frame.
+- We don't think how many pixels per frame... but instead we think how many pixels per second.
+
+## Code Example
+```cpp
+// difference in ticks from last frame converted to seconds
+float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
+
+// ...
+// ...
+// ...
+
+// the projectile will move 20 pixels per second
+projectile.position.x += 20 * deltaTime; // performance is different from machine to machine
+```
+</details>
+
+# If you implement DeltaTime,
+- Now our game objects will move correctly regardless of the frame rate.
+- As a rule, all objects in the scene should be updated as a function of delta time.
+
 <!--End Accordion -->
 
 
