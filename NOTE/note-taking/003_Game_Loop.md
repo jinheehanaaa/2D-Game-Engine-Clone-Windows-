@@ -209,6 +209,49 @@ projectile.position.x += 20 * deltaTime; // performance is different from machin
 <!--End Accordion -->
 
 
+<!--Start Accordion -->
+<details>
+  <summary>Implementation of DeltaTime Method</summary>
+
+# Objective
+- Learn how to implement DeltaTime
+- 3.19, 3.20
+- ![DeltaTime](../images/003_DeltaTime.jpg)
+
+# Procedure
+- Decide target FPS => ex: <code>const unsigned int FPS = 60;</code>
+- Decide target time in milliseconds => <code>const unsigned int FRAME_TARGET_TIME = 1000 / FPS;</code>
+- Implement DeltaTime Logic in Update(){}
+- Be sure to take care of left-over delta time in case the process is finished too fast
+- Be sure to take care of limiting delta time to certain value for avoiding to have big delta time
+
+## Code Example
+```cpp 
+void Game::Update() {
+    // Wait until 16ms has ellapsed since the last fram
+    // Alternative method: SDL_Delay
+    while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksLastFrame + FRAME_TARGET_TIME));
+
+    // Delta time is the difference in ticks from last frame converted to seconds
+    float deltaTime = (SDL_GetTicks() - ticksLastFrame) / 1000.0f;
+
+     int ticksLastFrame = 0; // keep this variable  in Game.h
+
+    // Clamp deltaTime to a maximum value
+    deltaTime = (deltaTime > 0.05f) ? 0.05f : deltaTime;
+
+    // Sets the new ticks for the current frame to be used in the next pass
+    ticksLastFrame = SDL_GetTicks();
+
+    projectilePosX += projectileVelX * deltaTime;
+    projectilePosY += projectileVelY * deltaTime;
+
+}
+```
+
+</details>
+<!--End Accordion -->
+
 
 
 
