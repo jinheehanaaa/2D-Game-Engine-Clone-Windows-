@@ -115,6 +115,64 @@ void SomeFunction() {
 
 
 
+<!--Start Accordion -->
+<details>
+  <summary>New & Delete</summary>
+
+# What is happening inside new & delete?
+- new => Memory allocation (malloc) & Initialization (constructor)
+- delete => Deinitialization (destructor) & Deallocation (free)
+
+# The new keyword will:
+- allocate (malloc) the necessary memory for the object
+- initialize (call the appropriate constructor) for that object
+
+# The delete keyword will
+- deinitialize the object by calling the destructor
+- deallocate (free) the memory resources allocated by the object
+
+## Code Example
+```cpp
+void SomeFunction() {
+    // Creates an object in the heap using the "new" keyword
+    Enemy* enemy = new Enemy();
+
+    enemy->Jump();
+    enemy->Run(20);
+    enemy->LookLeft();
+
+    // We need to explicitly "delete" the object
+    delete enemy;
+} 
+```
+
+# Pointers
+## Raw Pointers 
+
+### Code Example
+```cpp
+void Run() {
+    Enemy* e = new Enemy;
+
+    // Here we can use the object
+
+    delete e;
+}
+```
+
+## Smart Pointers
+- Modern C++ uses smart pointers to help programmers with the issue of having to remember to manually destroy objects.
+
+### Code Example
+```cpp
+// We will not learn about smart pointers in this introductory course
+```
+
+</details>
+<!--End Accordion -->
+
+
+
 
 
 
