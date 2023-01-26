@@ -6,7 +6,6 @@
 EntityManager manager;
 SDL_Renderer* Game::renderer;
 
-
 Game::Game() {
     this->isRunning = false;
 }
