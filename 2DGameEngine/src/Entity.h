@@ -2,11 +2,14 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <vector>
+#include <string>
+#include "./EntityManager.h"
+#include "./Component.h"
+
 class Component;
 class EntityManager;
 
-#include <vector>
-#include <string>
 class Entity {
 private:
 	EntityManager& manager;

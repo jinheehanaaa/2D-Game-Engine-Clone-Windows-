@@ -475,7 +475,11 @@
     <ClInclude Include="lib\SDL2\include\SDL_version.h" />
     <ClInclude Include="lib\SDL2\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2\include\SDL_vulkan.h" />
+    <ClInclude Include="src\Component.h" />
+    <ClInclude Include="src\Components\formComponent.h" />
     <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Entity.h" />
+    <ClInclude Include="src\EntityManager.h" />
     <ClInclude Include="src\Game.h" />
   </ItemGroup>
   <ItemGroup>
@@ -614,6 +618,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\glm\detail\glm.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\EntityManager.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>

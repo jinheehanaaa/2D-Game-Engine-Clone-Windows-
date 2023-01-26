@@ -13,7 +13,7 @@ Entity::Entity(EntityManager& manager, std::string name) : manager(manager) , na
 void Entity::Update(float deltaTime)
 {
 	for (auto& component : components) {
-		component->Update(deltaTime)
+		component->Update(deltaTime);
 	}
 }
 
