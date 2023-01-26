@@ -12,7 +12,6 @@ bool EntityManager::HasNoEntities()
 	return entities.size() == 0;
 }
 
-
 void EntityManager::Update(float deltaTime)
 {
 	for (auto& entity : entities) {
