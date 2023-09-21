@@ -4,11 +4,14 @@
 #include "./AssetManager.h"
 #include "Components/TransformComponent.h"
 #include "./Components/SpriteComponent.h"
+#include "./Components/KeyboardControlComponent.h"
 #include "../lib/glm/glm.hpp"
+
 
 EntityManager manager;
 AssetManager* Game::assetManager = new AssetManager(&manager);
 SDL_Renderer* Game::renderer;
+SDL_Event Game::event;
 
 Game::Game() {
     this->isRunning = false;
@@ -57,13 +60,17 @@ void Game::LoadLevel(int LevelNumber) {
     assetManager->AddTexture("radar-image", std::string("./assets/images/radar.png").c_str());
 
     // Start including entities and also components to them
+    Entity& chopperEntity(manager.AddEntity("chopper"));
+    chopperEntity.AddComponent<TransformComponent>(20, 20, 40, 0, 32, 32, 1);
+    chopperEntity.AddComponent<SpriteComponent>("chopper-image", 2, 90, true, false); // frame, speed, direction, fixed
+    chopperEntity.AddComponent<KeyboardControlComponent>("up", "right", "down", "left", "shoot");
+
+
     Entity& tankEntity(manager.AddEntity("tank"));
     tankEntity.AddComponent<TransformComponent>(0, 0, 20, 20, 32, 32, 1);
     tankEntity.AddComponent<SpriteComponent>("tank-image");
 
-    Entity& chopperEntity(manager.AddEntity("chopper"));
-    chopperEntity.AddComponent<TransformComponent>(20, 20, 40, 0, 32, 32, 1);
-    chopperEntity.AddComponent<SpriteComponent>("chopper-image", 2, 90, true, false); // frame, speed, direction, fixed
+
 
     Entity& radarEntity(manager.AddEntity("Radar"));
     radarEntity.AddComponent<TransformComponent>(720, 15, 0, 0, 64, 64, 1);
@@ -73,7 +80,6 @@ void Game::LoadLevel(int LevelNumber) {
 }
 
 void Game::ProcessInput() {
-    SDL_Event event;
     SDL_PollEvent(&event);
     switch (event.type) {
     case SDL_QUIT: {

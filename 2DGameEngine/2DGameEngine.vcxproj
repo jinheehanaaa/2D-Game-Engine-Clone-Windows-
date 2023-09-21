@@ -478,6 +478,7 @@
     <ClInclude Include="src\Animation.h" />
     <ClInclude Include="src\AssetManager.h" />
     <ClInclude Include="src\Component.h" />
+    <ClInclude Include="src\Components\KeyboardControlComponent.h" />
     <ClInclude Include="src\Components\TransformComponent.h" />
     <ClInclude Include="src\Components\SpriteComponent.h" />
     <ClInclude Include="src\Constants.h" />
